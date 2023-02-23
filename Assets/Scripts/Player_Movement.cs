@@ -16,7 +16,8 @@ public class Player_Movement : MonoBehaviour
     public float jumpHeight;
     public int nbJumpsMax;
     private int nbJumps;
-    private bool isGrounded = false;
+    [HideInInspector]
+    public bool isGrounded = false;
     private bool jumped = false;
 
     public float rollDistance;
