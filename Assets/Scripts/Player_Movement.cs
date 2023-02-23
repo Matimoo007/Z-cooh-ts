@@ -9,7 +9,7 @@ public class Player_Movement : MonoBehaviour
 
     public float movementResponsiveness;
     public float speed;
-    private float horizontal;
+    private int horizontal;
     private Vector2 velocityChange;
 
     public LayerMask floorLayer;
