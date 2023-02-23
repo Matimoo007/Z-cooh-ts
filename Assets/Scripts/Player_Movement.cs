@@ -132,10 +132,16 @@ public class Player_Movement : MonoBehaviour
     {
         Collider2D ground = Physics2D.OverlapCapsule(new Vector2(this.transform.position.x, this.transform.position.y), new Vector2(0.05f, 1.5f), CapsuleDirection2D.Vertical, 0, floorLayer);
 
-        if (ground != null && !jumped)
+        if (ground != null && !jumped && rb.velocity.y > -0.1f && rb.velocity.y < 0.1f)
         {
             isGrounded = true;
             nbJumps = nbJumpsMax;
+        }
+
+        if (ground == null)
+        {
+            isGrounded = false;
+            nbJumps = 0;
         }
     }
 

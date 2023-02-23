@@ -7,8 +7,15 @@ public class Player_Weapon : MonoBehaviour
     public GameObject swordObject;
     public GameObject swordSide, swordUp, swordDown;
 
+    public float swordCooldown;
+    private float swordTimer;
+
+    public float recoilForce;
+    public float pogoForce;
+
     private Animator swordAnimator;
     private Player_Movement pM;
+    private Rigidbody2D rb;
 
     private enum SwordDirection
     {
@@ -25,6 +32,7 @@ public class Player_Weapon : MonoBehaviour
     {
         swordAnimator = swordObject.GetComponent<Animator>();
         pM = GetComponent<Player_Movement>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -32,6 +40,11 @@ public class Player_Weapon : MonoBehaviour
     {
         SwordPositionning();
         Attack();
+
+        if (swordTimer > -1)
+        {
+            swordTimer -= Time.deltaTime;
+        }
     }
 
     private void SwordPositionning()
@@ -74,8 +87,10 @@ public class Player_Weapon : MonoBehaviour
         AnimatorClipInfo[] clipInfo = swordAnimator.GetCurrentAnimatorClipInfo(0);
         string clipName = clipInfo[0].clip.name;
 
-        if (Input.GetButtonDown("Attack") && clipName == "SwordIdle")
+        if (Input.GetButtonDown("Attack") && clipName == "SwordIdle" && swordTimer <= 0)
         {
+            swordTimer = swordCooldown;
+
             switch (swordDir)
             {
                 case SwordDirection.Side:
@@ -105,5 +120,25 @@ public class Player_Weapon : MonoBehaviour
         swordAnimator.SetBool("isSide", false);
         swordAnimator.SetBool("isUp", false);
         swordAnimator.SetBool("isDown", false);
+    }
+
+    public void WeaponRecoil()
+    {
+        switch (swordDir)
+        {
+            case SwordDirection.Side:
+                rb.velocity = new Vector2(0, rb.velocity.y);
+                rb.AddForce(new Vector2(-transform.localScale.x * recoilForce, 0));
+                break;
+            case SwordDirection.Up:
+                //nothin
+                break;
+            case SwordDirection.Down:
+                rb.velocity = new Vector2(rb.velocity.x, 0);
+                rb.AddForce(new Vector2(0, pogoForce));
+                break;
+            default:
+                break;
+        }
     }
 }
