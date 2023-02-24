@@ -8,9 +8,12 @@ public class Player_Health : MonoBehaviour
     private int health;
 
     public float knockbackForce;
+    public float hurtTime;
+    private bool canHurt = true;
 
     private Player_Movement pM;
     private Rigidbody2D rb;
+    private Animator animator;
 
     // Start is called before the first frame update
     void Start()
@@ -19,20 +22,52 @@ public class Player_Health : MonoBehaviour
 
         pM = GetComponent<Player_Movement>();
         rb = GetComponent<Rigidbody2D>();
+        animator = transform.GetComponent<Animator>();
+    }
+
+    private void Update()
+    {
+        Debug.Log(health);
+
+        if (health < 0)
+        {
+            health = 0;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.transform.tag == "PlayerDamage" && !pM.isRolling)
+        if (collision.transform.tag == "PlayerDamage" && !pM.isRolling && canHurt)
         {
             health--;
             Knockback();
+
+            canHurt = false;
+            animator.SetBool("isHurt", !canHurt);
+            Invoke("Hurt", hurtTime);
+
+            if (health == 0)
+            {
+                Death();
+            }
         }
     }
 
     private void Knockback()
     {
         rb.velocity = Vector2.zero;
-        rb.AddForce(new Vector2(-transform.localScale.x * knockbackForce, knockbackForce / 2));
+        rb.AddForce(new Vector2(-transform.localScale.x * knockbackForce, knockbackForce / 1.5f));
+    }
+
+    private void Hurt()
+    {
+        canHurt = true;
+        animator.SetBool("isHurt", !canHurt);
+    }
+
+    private void Death()
+    {
+        animator.SetBool("isDead", true);
+        pM.enabled = false;
     }
 }

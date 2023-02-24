@@ -25,6 +25,7 @@ public class Player_Movement : MonoBehaviour
     public float rollCooldown;
     private float inviTimer;
     private float rollTimer = 0;
+    [HideInInspector]
     public bool isRolling = false;
 
     public enum Looking
@@ -32,6 +33,7 @@ public class Player_Movement : MonoBehaviour
         Right,
         Left
     }
+    [HideInInspector]
     public Looking currentLook;
 
     // Start is called before the first frame update
