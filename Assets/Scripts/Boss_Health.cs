@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Boss_Health : MonoBehaviour
 {
-    public int maxHealth;
+    private int maxHealth = 50;
     private int health;
 
     private Boss_Logic bL;
@@ -22,7 +22,7 @@ public class Boss_Health : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(health);
+        Debug.Log("Boss : " + health);
 
         if (health < 0)
         {
@@ -30,17 +30,17 @@ public class Boss_Health : MonoBehaviour
         }
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.transform.tag == "BossDamage")
         {
             health--;
 
-            if(health == (maxHealth - maxHealth * 0.7f))
+            if(health == 15)
             {
                 bL.NextStage();
             }
-            else if(health == (maxHealth - maxHealth * 0.3f))
+            else if(health == 35)
             {
                 bL.NextStage();
             }

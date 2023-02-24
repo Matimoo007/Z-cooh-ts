@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PlayerDamage
   - BossDamage
+  - Boss
   layers:
   - Default
   - TransparentFX

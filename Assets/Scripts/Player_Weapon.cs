@@ -145,7 +145,8 @@ public class Player_Weapon : MonoBehaviour
                 rb.AddForce(new Vector2(-transform.localScale.x * recoilForce, 0));
                 break;
             case SwordDirection.Up:
-                //nothin
+                rb.velocity = new Vector2(rb.velocity.x, 0);
+                rb.AddForce(new Vector2(0, -recoilForce / 2.5f));
                 break;
             case SwordDirection.Down:
                 rb.velocity = new Vector2(rb.velocity.x, 0);

@@ -40,6 +40,19 @@ public class Boss_Logic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        switch (currentStage)
+        {
+            case BossStage.Stage1:
+                transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x, -0.4f), Time.deltaTime);
+                break; 
+            case BossStage.Stage2:
+                transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x, 1.6f), Time.deltaTime);
+                break;
+            case BossStage.Stage3:
+                transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x, -0.4f), Time.deltaTime);
+                break;
+        }
+
         atkTimer -= Time.deltaTime;
         if (atkTimer <= 0)
         {
@@ -51,7 +64,7 @@ public class Boss_Logic : MonoBehaviour
             switch (currentStage)
             {
                 case BossStage.Stage1:
-                    i = Random.Range(0, atk1.Length - 1);
+                    i = Random.Range(0, anim1.Length - 1);
                     anim = anim1[i];
                     animator.Play(anim, 0);
 
@@ -60,7 +73,7 @@ public class Boss_Logic : MonoBehaviour
                     atk.GetComponent<Boss_Attack>().Attack();
                     break;
                 case BossStage.Stage2:
-                    i = Random.Range(0, atk2.Length - 1);
+                    i = Random.Range(0, anim2.Length - 1);
                     anim = anim2[i];
                     animator.Play(anim, 0);
 
@@ -69,7 +82,7 @@ public class Boss_Logic : MonoBehaviour
                     atk.GetComponent<Boss_Attack>().Attack();
                     break;
                 case BossStage.Stage3:
-                    i = Random.Range(0, atk2.Length - 1);
+                    i = Random.Range(0, anim2.Length - 1);
                     anim = anim2[i];
                     animator.Play(anim, 0);
 

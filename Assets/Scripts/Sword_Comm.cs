@@ -13,7 +13,7 @@ public class Sword_Comm : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.transform.tag == "PlayerDamage")
+        if (collision.transform.tag == "PlayerDamage" || collision.transform.tag == "Boss")
         {
             pW.WeaponRecoil();
         }

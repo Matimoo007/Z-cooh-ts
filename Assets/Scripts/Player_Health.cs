@@ -31,7 +31,7 @@ public class Player_Health : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(health);
+        Debug.Log("Player : " + health);
 
         if (health < 0)
         {
