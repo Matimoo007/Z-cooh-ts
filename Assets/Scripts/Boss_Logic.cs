@@ -43,13 +43,13 @@ public class Boss_Logic : MonoBehaviour
         switch (currentStage)
         {
             case BossStage.Stage1:
-                transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x, -0.4f), Time.deltaTime);
+                transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x, -5.4f), Time.deltaTime);
                 break; 
             case BossStage.Stage2:
-                transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x, 1.6f), Time.deltaTime);
+                transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x, -3.4f), Time.deltaTime);
                 break;
             case BossStage.Stage3:
-                transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x, -0.4f), Time.deltaTime);
+                transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x, -5.4f), Time.deltaTime);
                 break;
         }
 

@@ -8,7 +8,6 @@ public class Boss_Health : MonoBehaviour
     private int health;
 
     private Boss_Logic bL;
-    private SpriteRenderer sprite;
 
     private bool isDead = false;
 
@@ -17,7 +16,6 @@ public class Boss_Health : MonoBehaviour
     {
         health = maxHealth;
         bL = GetComponent<Boss_Logic>();
-        sprite = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
