@@ -80,14 +80,25 @@ public class Player_Weapon : MonoBehaviour
         {
             swordDir = SwordDirection.Down;
         }
+
+        if (Input.GetButtonUp("Up") || Input.GetButtonUp("Down"))
+        {
+            swordDir = SwordDirection.Side;
+        }
     }
 
     private void Attack()
     {
+        if (pM.isRolling)
+        {
+            ResetSword();
+            swordAnimator.SetBool("isIdle", true);
+        }
+
         AnimatorClipInfo[] clipInfo = swordAnimator.GetCurrentAnimatorClipInfo(0);
         string clipName = clipInfo[0].clip.name;
 
-        if (Input.GetButtonDown("Attack") && clipName == "SwordIdle" && swordTimer <= 0)
+        if (Input.GetButtonDown("Attack") && clipName == "SwordIdle" && swordTimer <= 0 && !pM.isRolling)
         {
             swordTimer = swordCooldown;
 
@@ -95,17 +106,20 @@ public class Player_Weapon : MonoBehaviour
             {
                 case SwordDirection.Side:
                     swordObject.transform.position = swordSide.transform.position;
+                    swordAnimator.SetBool("isIdle", false);
                     swordAnimator.SetBool("isSide", true);
                     Invoke("ResetSword", 0.1f);
                     break;
                 case SwordDirection.Up:
                     swordObject.transform.position = swordUp.transform.position;
+                    swordAnimator.SetBool("isIdle", false);
                     swordAnimator.SetBool("isUp", true);
                     Invoke("ResetSword", 0.1f);
                     break;
                 case SwordDirection.Down:
                     if (pM.isGrounded) return;
                     swordObject.transform.position = swordDown.transform.position;
+                    swordAnimator.SetBool("isIdle", false);
                     swordAnimator.SetBool("isDown", true);
                     Invoke("ResetSword", 0.1f);
                     break;

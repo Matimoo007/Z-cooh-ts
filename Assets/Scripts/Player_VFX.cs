@@ -47,10 +47,16 @@ public class Player_VFX : MonoBehaviour
 
     private void DoVFX()
     {
+        GameObject vfx;
         switch (clipName)
         {
-            case "Roll":
-                GameObject vfx = dict.GetValueOrDefault(_clipName);
+            case "RollLeft":
+                vfx = dict.GetValueOrDefault(_clipName);
+                vfx.SetActive(false);
+                vfx.SetActive(true);
+                break;
+            case "RollRight":
+                vfx = dict.GetValueOrDefault(_clipName);
                 vfx.SetActive(false);
                 vfx.SetActive(true);
                 break;

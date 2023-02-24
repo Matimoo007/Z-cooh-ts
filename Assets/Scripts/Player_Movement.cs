@@ -25,14 +25,14 @@ public class Player_Movement : MonoBehaviour
     public float rollCooldown;
     private float inviTimer;
     private float rollTimer = 0;
-    private bool isRolling = false;
+    public bool isRolling = false;
 
-    private enum Looking
+    public enum Looking
     {
         Right,
         Left
     }
-    private Looking currentLook;
+    public Looking currentLook;
 
     // Start is called before the first frame update
     void Start()
@@ -192,5 +192,6 @@ public class Player_Movement : MonoBehaviour
         animator.SetFloat("yVelocity", rb.velocity.y);
         animator.SetBool("isGrounded", isGrounded);
         animator.SetBool("isRolling", isRolling);
+        animator.SetInteger("look", (int)rb.transform.localScale.x);
     }
 }
