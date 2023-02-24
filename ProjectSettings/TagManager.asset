@@ -55,6 +55,9 @@ TagManager:
   - name: MountainsFront
     uniqueID: 1866234257
     locked: 0
+  - name: Coots
+    uniqueID: 930490897
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
