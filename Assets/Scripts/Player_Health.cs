@@ -15,6 +15,8 @@ public class Player_Health : MonoBehaviour
     private Rigidbody2D rb;
     private Animator animator;
 
+    private bool isDead = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,9 +35,14 @@ public class Player_Health : MonoBehaviour
         {
             health = 0;
         }
+
+        if (isDead)
+        {
+            rb.velocity = new Vector2(0, rb.velocity.y);
+        }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.transform.tag == "PlayerDamage" && !pM.isRolling && canHurt)
         {
@@ -67,7 +74,8 @@ public class Player_Health : MonoBehaviour
 
     private void Death()
     {
-        animator.SetBool("isDead", true);
+        isDead = true;
+        animator.SetBool("isDead", isDead);
         pM.enabled = false;
     }
 }
