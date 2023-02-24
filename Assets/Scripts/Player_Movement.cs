@@ -15,6 +15,7 @@ public class Player_Movement : MonoBehaviour
     public LayerMask floorLayer;
     public float jumpHeight;
     public int nbJumpsMax;
+    public float coyoteTime;
     private int nbJumps;
     [HideInInspector]
     public bool isGrounded = false;
@@ -111,7 +112,7 @@ public class Player_Movement : MonoBehaviour
 
     private void PlayerJump()
     {
-        if (Input.GetButtonDown("Jump") && nbJumps > 0 && isGrounded)
+        if (Input.GetButtonDown("Jump") && nbJumps > 0)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpHeight);
             nbJumps--;
@@ -140,10 +141,10 @@ public class Player_Movement : MonoBehaviour
             nbJumps = nbJumpsMax;
         }
 
-        if (ground == null)
+        if (ground == null && isGrounded == true)
         {
             isGrounded = false;
-            nbJumps = 0;
+            Invoke("CoyoteJump", coyoteTime);
         }
     }
 
@@ -195,5 +196,10 @@ public class Player_Movement : MonoBehaviour
         animator.SetBool("isGrounded", isGrounded);
         animator.SetBool("isRolling", isRolling);
         animator.SetInteger("look", (int)rb.transform.localScale.x);
+    }
+
+    private void CoyoteJump()
+    {
+        nbJumps = 0;
     }
 }

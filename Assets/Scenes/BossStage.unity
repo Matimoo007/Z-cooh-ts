@@ -294,6 +294,7 @@ MonoBehaviour:
     m_Bits: 64
   jumpHeight: 15
   nbJumpsMax: 1
+  coyoteTime: 0.15
   isGrounded: 0
   rollDistance: 575
   rollTime: 0.3
