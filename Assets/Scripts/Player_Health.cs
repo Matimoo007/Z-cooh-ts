@@ -12,6 +12,7 @@ public class Player_Health : MonoBehaviour
     private bool canHurt = true;
 
     private Player_Movement pM;
+    private Player_Weapon pW;
     private Rigidbody2D rb;
     private Animator animator;
 
@@ -23,6 +24,7 @@ public class Player_Health : MonoBehaviour
         health = maxHealth;
 
         pM = GetComponent<Player_Movement>();
+        pW = GetComponent<Player_Weapon>();
         rb = GetComponent<Rigidbody2D>();
         animator = transform.GetComponent<Animator>();
     }
@@ -77,5 +79,6 @@ public class Player_Health : MonoBehaviour
         isDead = true;
         animator.SetBool("isDead", isDead);
         pM.enabled = false;
+        pW.enabled = false;
     }
 }
