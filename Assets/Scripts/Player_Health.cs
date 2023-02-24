@@ -33,6 +33,6 @@ public class Player_Health : MonoBehaviour
     private void Knockback()
     {
         rb.velocity = Vector2.zero;
-        rb.AddForce(new Vector2(-transform.localScale.x * knockbackForce, knockbackForce));
+        rb.AddForce(new Vector2(-transform.localScale.x * knockbackForce, knockbackForce / 2));
     }
 }
