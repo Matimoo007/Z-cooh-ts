@@ -170,6 +170,7 @@ public class Boss_Logic : MonoBehaviour
 
                 CameraShake.Instance.DoShake(4.85f, .03f);
                 Sound.Instance.Play(5);
+                Sound.Instance.Play(10);
                 inIntro = true;
                 break;
             case BossStage.Stage3:
