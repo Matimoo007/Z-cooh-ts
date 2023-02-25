@@ -143,6 +143,8 @@ public class Boss_Logic : MonoBehaviour
             case BossStage.Stage3:
                 atkTime = atkTime3;
                 atkTimer = atkTime;
+
+                inIntro = true;
                 break;
         }
     }

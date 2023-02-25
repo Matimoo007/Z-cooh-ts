@@ -6,24 +6,42 @@ public class Attack_Homing : Boss_Attack
 {
     GameObject player;
     Animator animator;
+    Collider2D cd;
+    Transform vfx;
+
+    GameObject spawn;
 
     private void Awake()
     {
         player = GameObject.Find("Player");
+
         animator = GetComponent<Animator>();
+        cd = GetComponent<Collider2D>();
+        vfx = transform.Find("HomingVFX");
+
+        spawn = GameObject.Find("TopEye");
+
+        cd.enabled = false;
+        vfx.gameObject.SetActive(false);
     }
 
     protected override IEnumerator Attack()
     {
-        Vector2 target = new Vector2(-2.6f, 2f);
+        transform.position = spawn.transform.position;
+        yield return new WaitForSeconds(1f);
+        cd.enabled = true;
+        vfx.gameObject.SetActive(true);
+
+        Vector2 target = new Vector2(0, 5f);
         while (Vector2.Distance(transform.position, target) > 0.01f)
         {
             transform.position = Vector2.MoveTowards(transform.position, target, Time.deltaTime);
+            yield return null;
         }
 
         while (true)
         {
-            transform.position = Vector2.Lerp(transform.position, player.transform.position, 2 * Time.deltaTime);
+            transform.position = Vector2.Lerp(transform.position, player.transform.position, 5 * Time.deltaTime);
             yield return null;
         }
     }
@@ -32,8 +50,9 @@ public class Attack_Homing : Boss_Attack
     {
         if (collision.tag == "Player" || collision.gameObject.layer == 6)
         {
-            animator.Play("Hit", 0);
-            Invoke("AttackOver", .1f);
+            animator.Play("Homing", 0);
+            cd.enabled = false;
+            Invoke("AttackOver", .2f);
         }
     }
 }
