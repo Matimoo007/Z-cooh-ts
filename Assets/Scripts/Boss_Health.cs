@@ -36,7 +36,7 @@ public class Boss_Health : MonoBehaviour
         if (collision.transform.tag == "BossDamage" && !bL.inIntro)
         {
             health--;
-            animator.Play("Hurt", 4);
+            animator.Play("Hurt", 5);
 
             if(health == 15)
             {

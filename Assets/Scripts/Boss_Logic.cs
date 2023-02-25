@@ -80,8 +80,16 @@ public class Boss_Logic : MonoBehaviour
                     case BossStage.Stage2:
                         i = Random.Range(0, anim2.Length);
                         anim = anim2[i];
-                        animator.Play(anim, 0);
 
+                        if (anim == "Homing")
+                        {
+                            animator.Play(anim, 4);
+                        }
+                        else
+                        {
+                            animator.Play(anim, 0);
+                        }
+                       
                         atk = Instantiate(atk2[i]);
                         atk.GetComponent<Boss_Attack>().DoAttack();
                         break;
