@@ -43,7 +43,7 @@ public class Attack_Homing : Boss_Attack
         while (timer >= 0)
         {
             timer -= Time.deltaTime;
-            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, Time.deltaTime * 5.5f);
+            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, Time.deltaTime * 5.3f);
             yield return null;
         }
 

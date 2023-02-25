@@ -42,6 +42,7 @@ public class Boss_Logic : MonoBehaviour
         animator.Play(intro1, 0);
         atkTime = atkTime1;
         atkTimer = atkTime;
+        CameraShake.Instance.DoShake(5f, .03f);
 
         StartCoroutine("LogicUpdate");
     }
@@ -154,12 +155,14 @@ public class Boss_Logic : MonoBehaviour
                 atkTime = atkTime2;
                 atkTimer = atkTime;
 
+                CameraShake.Instance.DoShake(4.85f, .03f);
                 inIntro = true;
                 break;
             case BossStage.Stage3:
                 atkTime = atkTime3;
                 atkTimer = atkTime;
 
+                CameraShake.Instance.DoShake(4.85f, .03f);
                 inIntro = true;
                 break;
         }

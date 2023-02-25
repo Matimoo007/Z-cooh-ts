@@ -19,6 +19,8 @@ public class Player_Health : MonoBehaviour
 
     private bool isDead = false;
 
+    private Animator ui;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +31,7 @@ public class Player_Health : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = transform.GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
+        ui = GameObject.Find("Health").GetComponent<Animator>();
     }
 
     private void Update()
@@ -44,6 +47,9 @@ public class Player_Health : MonoBehaviour
         {
             rb.velocity = new Vector2(0, rb.velocity.y);
         }
+
+        ui.SetInteger("health", health);
+        ui.transform.position = new Vector2(transform.position.x, transform.position.y + 0.5f);
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -54,6 +60,8 @@ public class Player_Health : MonoBehaviour
         {
             health--;
             Knockback();
+
+            CameraShake.Instance.DoShake(.1f, .05f);
 
             canHurt = false;
             animator.SetBool("isHurt", !canHurt);
