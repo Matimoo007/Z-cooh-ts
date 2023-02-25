@@ -26,6 +26,7 @@ public class Attack_Bite : Boss_Attack
         }
 
         animator.Play("Bite");
+        Sound.Instance.Play(4);
 
         while (timer > 0)
         {

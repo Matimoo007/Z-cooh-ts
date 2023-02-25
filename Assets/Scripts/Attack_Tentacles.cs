@@ -53,6 +53,7 @@ public class Attack_Tentacles : Boss_Attack
         }
         Vector2 reset = transform.position;
 
+        Sound.Instance.Play(9);
         while (Vector3.Distance(transform.position, t1) > 0.01f)
         {
             transform.position = Vector2.MoveTowards(transform.position, t1, Time.deltaTime);
@@ -70,6 +71,7 @@ public class Attack_Tentacles : Boss_Attack
             transform.position = Vector2.Lerp(transform.position, reset, 5 * Time.deltaTime);
             yield return null;
         }
+        Sound.Instance.Stop(9);
 
         AttackOver();
     }

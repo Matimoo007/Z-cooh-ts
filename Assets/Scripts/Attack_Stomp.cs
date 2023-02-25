@@ -45,6 +45,7 @@ public class Attack_Stomp : Boss_Attack
         one.gameObject.SetActive(true);
 
         CameraShake.Instance.DoShake(.3f, .3f);
+        Sound.Instance.Play(5);
         while (three.localPosition.x > -24)
         {
             yield return new WaitForSeconds(.1f);

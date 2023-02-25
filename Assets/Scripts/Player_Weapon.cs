@@ -105,6 +105,8 @@ public class Player_Weapon : MonoBehaviour
                 default:
                     break;
             }
+
+            Sound.Instance.Play(3);
         }
     }
 

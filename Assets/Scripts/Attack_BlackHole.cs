@@ -27,6 +27,7 @@ public class Attack_BlackHole : Boss_Attack
         yield return new WaitForEndOfFrame();
         rb.velocity = Vector2.zero;
         animator.Play("BlackHoleStart");
+        Sound.Instance.Play(6);
 
         int presses = 20;
         while (presses >= 0)
@@ -47,6 +48,7 @@ public class Attack_BlackHole : Boss_Attack
     {
         bL.blackHole = false;
         pM.stopMovement = false;
+        Sound.Instance.Stop(6);
         Invoke("AttackOver", .67f);
     }
 }

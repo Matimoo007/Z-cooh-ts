@@ -127,6 +127,8 @@ public class Player_Movement : MonoBehaviour
             nbJumps--;
             jumped = true;
             isGrounded = false;
+
+            Sound.Instance.Play(0);
         }
 
         if (Input.GetButtonUp("Jump") && jumped)
@@ -184,6 +186,8 @@ public class Player_Movement : MonoBehaviour
             isRolling = true;
             inviTimer = rollTime;
             rollTimer = rollCooldown;
+
+            Sound.Instance.Play(1);
         }
 
         if (isRolling)

@@ -37,6 +37,7 @@ public class Attack_Homing : Boss_Attack
         vfx.gameObject.SetActive(true);
         sprite.enabled = true;
 
+        Sound.Instance.Play(7);
         Vector2 target = new Vector2(0.4f, 5f);
         while (Vector2.Distance(transform.position, target) > 0.01f)
         {

@@ -72,6 +72,8 @@ public class Player_Health : MonoBehaviour
             {
                 Death();
             }
+
+            Sound.Instance.Play(2);
         }
     }
 

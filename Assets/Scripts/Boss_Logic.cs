@@ -48,6 +48,7 @@ public class Boss_Logic : MonoBehaviour
         atkTime = atkTime1;
         atkTimer = atkTime;
         CameraShake.Instance.DoShake(5f, .03f);
+        Sound.Instance.Play(5);
 
         StartCoroutine("LogicUpdate");
     }
@@ -55,6 +56,7 @@ public class Boss_Logic : MonoBehaviour
     private IEnumerator LogicUpdate()
     {
         yield return new WaitForSeconds(5.83f);
+        Sound.Instance.Play(8);
 
         inIntro = false;
         while (true)
@@ -167,6 +169,7 @@ public class Boss_Logic : MonoBehaviour
                 atkTimer = atkTime;
 
                 CameraShake.Instance.DoShake(4.85f, .03f);
+                Sound.Instance.Play(5);
                 inIntro = true;
                 break;
             case BossStage.Stage3:
@@ -175,6 +178,7 @@ public class Boss_Logic : MonoBehaviour
                 atkTimer = atkTime;
 
                 CameraShake.Instance.DoShake(4.85f, .03f);
+                Sound.Instance.Play(5);
                 inIntro = true;
                 break;
         }
