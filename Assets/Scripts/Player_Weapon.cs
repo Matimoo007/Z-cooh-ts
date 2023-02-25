@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player_Weapon : MonoBehaviour
 {
+    public GameObject swordMaster;
     public GameObject swordObject;
     public GameObject swordSide, swordDown;
 
@@ -19,11 +20,12 @@ public class Player_Weapon : MonoBehaviour
 
     private enum SwordDirection
     {
-        Side,
+        Left,
+        Right,
         Down
     }
 
-    private SwordDirection swordDir = SwordDirection.Side;
+    private SwordDirection swordDir = SwordDirection.Right;
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +38,8 @@ public class Player_Weapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        swordMaster.transform.position = transform.position;
+
         SwordPositionning();
         Attack();
 
@@ -51,9 +55,13 @@ public class Player_Weapon : MonoBehaviour
         {
             swordDir = SwordDirection.Down;
         }
+        else if (transform.localScale.x == 1)
+        {
+            swordDir = SwordDirection.Right;
+        }
         else
         {
-            swordDir = SwordDirection.Side;
+            swordDir = SwordDirection.Left;
         }
     }
 
@@ -74,7 +82,15 @@ public class Player_Weapon : MonoBehaviour
 
             switch (swordDir)
             {
-                case SwordDirection.Side:
+                case SwordDirection.Right:
+                    swordMaster.transform.localScale = new Vector2(1, 1);
+                    swordObject.transform.position = swordSide.transform.position;
+                    swordAnimator.SetBool("isIdle", false);
+                    swordAnimator.SetBool("isSide", true);
+                    Invoke("ResetSword", 0.1f);
+                    break;
+                case SwordDirection.Left:
+                    swordMaster.transform.localScale = new Vector2(-1, 1);
                     swordObject.transform.position = swordSide.transform.position;
                     swordAnimator.SetBool("isIdle", false);
                     swordAnimator.SetBool("isSide", true);
@@ -102,7 +118,11 @@ public class Player_Weapon : MonoBehaviour
     {
         switch (swordDir)
         {
-            case SwordDirection.Side:
+            case SwordDirection.Left:
+                rb.velocity = new Vector2(0, rb.velocity.y);
+                rb.AddForce(new Vector2(-transform.localScale.x * recoilForce, 0));
+                break;
+            case SwordDirection.Right:
                 rb.velocity = new Vector2(0, rb.velocity.y);
                 rb.AddForce(new Vector2(-transform.localScale.x * recoilForce, 0));
                 break;
