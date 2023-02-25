@@ -48,14 +48,16 @@ public class Player_Health : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
+        if (isDead) return;
+
         if (collision.transform.tag == "PlayerDamage" && !pM.isRolling && canHurt)
         {
             health--;
             Knockback();
 
             canHurt = false;
-            animator.Play("Hurt", 0);
-            StartCoroutine("Flicker");
+            animator.SetBool("isHurt", !canHurt);
+            animator.Play("Hurt", 1);
             Invoke("Hurt", hurtTime);
 
             if (health == 0)
@@ -71,23 +73,10 @@ public class Player_Health : MonoBehaviour
         rb.AddForce(new Vector2(-transform.localScale.x * knockbackForce, knockbackForce / 1.5f));
     }
 
-    private IEnumerator Flicker()
-    {
-        yield return new WaitForSeconds(0.5f);
-        while (true)
-        {
-            Debug.Log("test");
-            sprite.color = Color.black;
-            yield return new WaitForSeconds(0.1f);
-            sprite.color = Color.white;
-            yield return new WaitForSeconds(0.1f);
-        }
-    }
-
     private void Hurt()
     {
         canHurt = true;
-        StopCoroutine("Flicker");
+        animator.SetBool("isHurt", !canHurt);
     }
 
     private void Death()
