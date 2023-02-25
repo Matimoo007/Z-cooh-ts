@@ -19,7 +19,7 @@ public class Attack_Homing : Boss_Attack
         cd = GetComponent<Collider2D>();
         vfx = transform.Find("HomingVFX");
 
-        spawn = GameObject.Find("TopEye");
+        spawn = GameObject.Find("TopEye_1");
 
         cd.enabled = false;
         vfx.gameObject.SetActive(false);
@@ -32,27 +32,35 @@ public class Attack_Homing : Boss_Attack
         cd.enabled = true;
         vfx.gameObject.SetActive(true);
 
-        Vector2 target = new Vector2(0, 5f);
+        Vector2 target = new Vector2(0.4f, 5f);
         while (Vector2.Distance(transform.position, target) > 0.01f)
         {
             transform.position = Vector2.MoveTowards(transform.position, target, Time.deltaTime);
             yield return null;
         }
 
-        while (true)
+        var timer = 5f;
+        while (timer >= 0)
         {
-            transform.position = Vector2.Lerp(transform.position, player.transform.position, 5 * Time.deltaTime);
+            timer -= Time.deltaTime;
+            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, Time.deltaTime * 5.5f);
             yield return null;
         }
+
+        End();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player" || collision.gameObject.layer == 6)
+        if (collision.tag == "Player" && !player.GetComponent<Player_Movement>().isRolling)
         {
-            animator.Play("Homing", 0);
-            cd.enabled = false;
-            Invoke("AttackOver", .2f);
+            End();
         }
+    }
+
+    private void End()
+    {
+        animator.Play("Homing", 0);
+        Invoke("AttackOver", .2f);
     }
 }

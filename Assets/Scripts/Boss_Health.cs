@@ -33,6 +33,8 @@ public class Boss_Health : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (isDead) return;
+
         if (collision.transform.tag == "BossDamage" && !bL.inIntro)
         {
             health--;
@@ -57,5 +59,6 @@ public class Boss_Health : MonoBehaviour
     private void Death()
     {
         isDead = true;
+        bL.LogicStop();
     }
 }

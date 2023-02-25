@@ -156,4 +156,9 @@ public class Boss_Logic : MonoBehaviour
                 break;
         }
     }
+
+    public void LogicStop()
+    {
+        StopCoroutine("LogicUpdate");
+    }
 }
