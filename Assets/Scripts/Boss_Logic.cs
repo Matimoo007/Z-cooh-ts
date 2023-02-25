@@ -55,8 +55,8 @@ public class Boss_Logic : MonoBehaviour
         {
             if (inIntro)
             {
-                inIntro = false;
                 yield return new WaitForSeconds(2.5f);
+                inIntro = false;
             }
 
             atkTimer -= Time.deltaTime;
