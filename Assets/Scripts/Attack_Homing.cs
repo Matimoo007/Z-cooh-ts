@@ -10,16 +10,23 @@ public class Attack_Homing : Boss_Attack
 
     GameObject spawn;
 
+    Transform vfx;
+    SpriteRenderer sprite;
+
     private void Awake()
     {
         player = GameObject.Find("Player");
 
         animator = GetComponent<Animator>();
         cd = GetComponent<Collider2D>();
+        vfx = transform.Find("HomingVFX");
+        sprite = GetComponent<SpriteRenderer>();
 
         spawn = GameObject.Find("TopEye_1");
 
         cd.enabled = false;
+        vfx.gameObject.SetActive(false);
+        sprite.enabled = false;
     }
 
     protected override IEnumerator Attack()
@@ -27,6 +34,8 @@ public class Attack_Homing : Boss_Attack
         transform.position = spawn.transform.position;
         yield return new WaitForSeconds(1f);
         cd.enabled = true;
+        vfx.gameObject.SetActive(true);
+        sprite.enabled = true;
 
         Vector2 target = new Vector2(0.4f, 5f);
         while (Vector2.Distance(transform.position, target) > 0.01f)
