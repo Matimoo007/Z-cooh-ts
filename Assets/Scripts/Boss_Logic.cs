@@ -126,7 +126,7 @@ public class Boss_Logic : MonoBehaviour
             case BossStage.Stage1:
                 break;
             case BossStage.Stage2:
-                animator.Play(intro2, 0);
+                animator.Play(intro2, 3);
                 atkTime = atkTime2;
                 atkTimer = atkTime;
                 break;

@@ -71,7 +71,6 @@ public class Attack_Tentacles : Boss_Attack
             yield return null;
         }
 
-
         AttackOver();
     }
 }
