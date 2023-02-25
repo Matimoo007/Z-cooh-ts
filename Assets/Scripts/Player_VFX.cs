@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player_VFX : MonoBehaviour
 {
     private Animator animator;
+    GameObject vfx = null;
 
     private string clipName
     {
@@ -22,7 +23,7 @@ public class Player_VFX : MonoBehaviour
     private AnimatorClipInfo[] clipInfo;
     private string _clipName;
 
-    public GameObject[] vfx;
+    public GameObject[] vfxs;
     public string[] associatedState;
 
     public Dictionary<string, GameObject> dict = new Dictionary<string, GameObject>();
@@ -32,9 +33,9 @@ public class Player_VFX : MonoBehaviour
     {
         animator = transform.GetComponent<Animator>();
 
-        for (int i = 0; i < vfx.Length; i++)
+        for (int i = 0; i < vfxs.Length; i++)
         {
-            dict.Add(associatedState[i], vfx[i]);
+            dict.Add(associatedState[i], vfxs[i]);
         }
     }
 
@@ -43,11 +44,15 @@ public class Player_VFX : MonoBehaviour
     {
         clipInfo = animator.GetCurrentAnimatorClipInfo(0);
         clipName = clipInfo[0].clip.name;
+
+        if (vfx != null)
+        {
+            vfx.transform.position = transform.position;
+        }
     }
 
     private void DoVFX()
     {
-        GameObject vfx;
         switch (clipName)
         {
             case "RollLeft":
