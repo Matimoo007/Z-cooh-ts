@@ -35,6 +35,58 @@ public class Boss_Logic : MonoBehaviour
         animator.Play(intro1, 0);
         atkTime = atkTime1;
         atkTimer = atkTime;
+
+        StartCoroutine("LogicUpdate");
+    }
+
+    private IEnumerator LogicUpdate()
+    {
+        float wait = animator.GetCurrentAnimatorStateInfo(0).length;
+        yield return new WaitForSeconds(wait);
+
+        while (true)
+        {
+            atkTimer -= Time.deltaTime;
+            if (atkTimer <= 0)
+            {
+                atkTimer = atkTime + Random.Range(0.0f, 2.0f);
+
+                int i;
+                string anim;
+                GameObject atk;
+                switch (currentStage)
+                {
+                    case BossStage.Stage1:
+                        i = Random.Range(0, anim1.Length - 1);
+                        anim = anim1[i];
+                        animator.Play(anim, 0);
+
+                        atk = atk1[i];
+                        atk.SetActive(true);
+                        atk.GetComponent<Boss_Attack>().DoAttack();
+                        break;
+                    case BossStage.Stage2:
+                        i = Random.Range(0, anim2.Length - 1);
+                        anim = anim2[i];
+                        animator.Play(anim, 0);
+
+                        atk = atk2[i];
+                        atk.SetActive(true);
+                        atk.GetComponent<Boss_Attack>().DoAttack();
+                        break;
+                    case BossStage.Stage3:
+                        i = Random.Range(0, anim2.Length - 1);
+                        anim = anim2[i];
+                        animator.Play(anim, 0);
+
+                        atk = atk2[i];
+                        atk.SetActive(true);
+                        atk.GetComponent<Boss_Attack>().DoAttack();
+                        break;
+                }
+            }
+            yield return null;
+        }
     }
 
     // Update is called once per frame
@@ -51,46 +103,6 @@ public class Boss_Logic : MonoBehaviour
             case BossStage.Stage3:
                 transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x, -5.4f), Time.deltaTime);
                 break;
-        }
-
-        atkTimer -= Time.deltaTime;
-        if (atkTimer <= 0)
-        {
-            atkTimer = atkTime + Random.Range(0.0f, 2.0f);
-
-            int i;
-            string anim;
-            GameObject atk;
-            switch (currentStage)
-            {
-                case BossStage.Stage1:
-                    i = Random.Range(0, anim1.Length - 1);
-                    anim = anim1[i];
-                    animator.Play(anim, 0);
-
-                    atk = atk1[i];
-                    atk.SetActive(true);
-                    atk.GetComponent<Boss_Attack>().Attack();
-                    break;
-                case BossStage.Stage2:
-                    i = Random.Range(0, anim2.Length - 1);
-                    anim = anim2[i];
-                    animator.Play(anim, 0);
-
-                    atk = atk2[i];
-                    atk.SetActive(true);
-                    atk.GetComponent<Boss_Attack>().Attack();
-                    break;
-                case BossStage.Stage3:
-                    i = Random.Range(0, anim2.Length - 1);
-                    anim = anim2[i];
-                    animator.Play(anim, 0);
-
-                    atk = atk2[i];
-                    atk.SetActive(true);
-                    atk.GetComponent<Boss_Attack>().Attack();
-                    break;
-            }
         }
     }
 

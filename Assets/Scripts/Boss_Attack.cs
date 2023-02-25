@@ -4,12 +4,17 @@ using UnityEngine;
 
 public abstract class Boss_Attack : MonoBehaviour
 {
-    private void Start()
+    public void DoAttack()
     {
-        
+        StartCoroutine("Attack");
     }
 
-    public abstract void Attack();
+    public void StopAttack()
+    {
+        StopCoroutine("Attack");
+    }
+
+    protected abstract IEnumerator Attack();
 
     protected void AttackOver()
     {

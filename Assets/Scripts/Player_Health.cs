@@ -15,6 +15,7 @@ public class Player_Health : MonoBehaviour
     private Player_Weapon pW;
     private Rigidbody2D rb;
     private Animator animator;
+    private SpriteRenderer sprite;
 
     private bool isDead = false;
 
@@ -27,6 +28,7 @@ public class Player_Health : MonoBehaviour
         pW = GetComponent<Player_Weapon>();
         rb = GetComponent<Rigidbody2D>();
         animator = transform.GetComponent<Animator>();
+        sprite = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
@@ -52,7 +54,8 @@ public class Player_Health : MonoBehaviour
             Knockback();
 
             canHurt = false;
-            animator.SetBool("isHurt", !canHurt);
+            animator.Play("Hurt", 0);
+            StartCoroutine("Flicker");
             Invoke("Hurt", hurtTime);
 
             if (health == 0)
@@ -68,10 +71,23 @@ public class Player_Health : MonoBehaviour
         rb.AddForce(new Vector2(-transform.localScale.x * knockbackForce, knockbackForce / 1.5f));
     }
 
+    private IEnumerator Flicker()
+    {
+        yield return new WaitForSeconds(0.5f);
+        while (true)
+        {
+            Debug.Log("test");
+            sprite.color = Color.black;
+            yield return new WaitForSeconds(0.1f);
+            sprite.color = Color.white;
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
+
     private void Hurt()
     {
         canHurt = true;
-        animator.SetBool("isHurt", !canHurt);
+        StopCoroutine("Flicker");
     }
 
     private void Death()
