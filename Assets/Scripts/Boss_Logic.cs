@@ -22,6 +22,8 @@ public class Boss_Logic : MonoBehaviour
 
     private GameObject platform1, platform2;
 
+    public bool inIntro = true;
+
     private enum BossStage
     {
         Stage1,
@@ -46,11 +48,17 @@ public class Boss_Logic : MonoBehaviour
 
     private IEnumerator LogicUpdate()
     {
-        float wait = animator.GetCurrentAnimatorStateInfo(0).length;
-        yield return new WaitForSeconds(wait);
+        yield return new WaitForSeconds(5.83f);
 
+        inIntro = false;
         while (true)
         {
+            if (inIntro)
+            {
+                inIntro = false;
+                yield return new WaitForSeconds(2.5f);
+            }
+
             atkTimer -= Time.deltaTime;
             if (atkTimer <= 0)
             {
@@ -129,6 +137,8 @@ public class Boss_Logic : MonoBehaviour
                 animator.Play(intro2, 2);
                 atkTime = atkTime2;
                 atkTimer = atkTime;
+
+                inIntro = true;
                 break;
             case BossStage.Stage3:
                 atkTime = atkTime3;

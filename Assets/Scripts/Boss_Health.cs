@@ -33,7 +33,7 @@ public class Boss_Health : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.transform.tag == "BossDamage")
+        if (collision.transform.tag == "BossDamage" && !bL.inIntro)
         {
             health--;
             animator.Play("Hurt", 4);
