@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 1406904336630685848}
   - component: {fileID: 1406904336630685855}
   - component: {fileID: 1406904336630685854}
-  - component: {fileID: 1406904336630685850}
   - component: {fileID: 1406904336630685849}
+  - component: {fileID: 4861854259612035967}
   m_Layer: 0
   m_Name: Tentacles
   m_TagString: PlayerDamage
@@ -107,32 +107,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &1406904336630685850
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1406904336630685853}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.0905534, y: -0.2716589}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5, y: 5}
-    newSize: {x: 5, y: 5}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 4.8188934, y: 2.4386463}
-  m_EdgeRadius: 0
 --- !u!114 &1406904336630685849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,3 +119,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c4496bdd37e94644af0d53005a57c01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!60 &4861854259612035967
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1406904336630685853}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 5, y: 5}
+    newSize: {x: 5, y: 5}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -2.4, y: 1.2}
+      - {x: -2.5, y: 1.1}
+      - {x: -2.5, y: -1.2}
+      - {x: -1.7297314, y: -0.87925535}
+      - {x: -0.0011568367, y: -1.4263445}
+      - {x: 1.0643897, y: -1.2386339}
+      - {x: 1.8248042, y: -0.31391382}
+      - {x: 2.2834733, y: -0.4330855}
+      - {x: 2.5326707, y: 0.07527992}
+      - {x: 2.1564388, y: 0.6059631}
+      - {x: 1.7, y: 0.8}
+      - {x: 0.45554566, y: 0.6426146}
+      - {x: -0.5147414, y: 0.7647919}
+      - {x: -1.1435611, y: 1.0693169}
