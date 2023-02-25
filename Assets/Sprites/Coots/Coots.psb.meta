@@ -1897,7 +1897,7 @@ ScriptedImporter:
     parentGroupIndex: -1
     uvTransform: {x: 4, y: 699}
     spritePosition: {x: 102, y: 11}
-  - name: Teeth
+  - name: Teeth copy
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -1906,9 +1906,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 173
       y: 173
-      width: 20
-      height: 52
-    spriteID: 423c299b5b68c8641b3081c26b36b6ae
+      width: 52
+      height: 20
+    spriteID: 90778ffbee1418d4daf8abad7c354fa6
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -2018,7 +2018,7 @@ ScriptedImporter:
       y: 841
       width: 90
       height: 160
-    spriteID: d476b2f855b98ba438271734dd8a18c5
+    spriteID: f4441b5120b7e2642936e57208d6de30
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -2084,7 +2084,7 @@ ScriptedImporter:
       y: 979
       width: 62
       height: 41
-    spriteID: cb88c46985a012f4b836546cc94f3424
+    spriteID: 93cc3f2e40b0df1409311221185d6e19
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -2106,7 +2106,7 @@ ScriptedImporter:
       y: 4
       width: 109
       height: 91
-    spriteID: 0e2d9db7fe7f06041a29eefe22713ac1
+    spriteID: f07da4a35819cdf4b988abc10a7b363c
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -2172,7 +2172,7 @@ ScriptedImporter:
       y: 883
       width: 50
       height: 33
-    spriteID: e71811c24ad4e104e941324961879985
+    spriteID: a9555e6bff2908c44bc8b30bff5f0490
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -2194,7 +2194,7 @@ ScriptedImporter:
       y: 602
       width: 69
       height: 167
-    spriteID: 19dd7883dc3ffbc448ddf3ef89af5cb6
+    spriteID: 8cc0fdfdc86236d4fa74b6157b07bfb4
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -2260,7 +2260,7 @@ ScriptedImporter:
       y: 580
       width: 58
       height: 35
-    spriteID: 00682f6d4b9528c4ca268cba7e80f94f
+    spriteID: 54d852210431aeb4da6d27ccbb5e565b
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -2282,7 +2282,7 @@ ScriptedImporter:
       y: 777
       width: 78
       height: 93
-    spriteID: 294aef78b2280d5469e3bc92ee56444c
+    spriteID: bd2799464e32cfa469077487b2fbab20
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -2348,7 +2348,7 @@ ScriptedImporter:
       y: 590
       width: 74
       height: 73
-    spriteID: 0c2bf5219bd9e6546a8c26837bb7756e
+    spriteID: 75ccca8deb983a74d942d076924afaad
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -2370,7 +2370,7 @@ ScriptedImporter:
       y: 885
       width: 61
       height: 42
-    spriteID: f97feaf17811e6f43a84eb77eee7f361
+    spriteID: 08411eaca33ee994b8bad7c225ee1b79
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -2392,7 +2392,7 @@ ScriptedImporter:
       y: 623
       width: 60
       height: 33
-    spriteID: ae06ae39c03ce0644849d4ebb04d1418
+    spriteID: 519314ee21772c844bbba52c945fe4dc
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -3805,7 +3805,7 @@ ScriptedImporter:
     mosaicPosition: {x: 0, y: 0}
     flatten: 0
     isImported: 0
-    isVisible: 0
+    isVisible: 1
   - name: MovingPart
     spriteName: 
     isGroup: 1
@@ -3816,12 +3816,12 @@ ScriptedImporter:
     flatten: 0
     isImported: 0
     isVisible: 1
-  - name: Teeth
-    spriteName: Teeth
+  - name: Teeth copy
+    spriteName: Teeth copy
     isGroup: 0
     parentIndex: 70
-    spriteID: 423c299b5b68c8641b3081c26b36b6ae
-    layerID: 209
+    spriteID: 90778ffbee1418d4daf8abad7c354fa6
+    layerID: 302
     mosaicPosition: {x: 173, y: 173}
     flatten: 0
     isImported: 1
@@ -3890,7 +3890,7 @@ ScriptedImporter:
     spriteName: 
     isGroup: 1
     parentIndex: 77
-    spriteID: 42736a60066f2cf48b93728d8f721b9d
+    spriteID: 180e49bee6222bf4d91e65d249236b73
     layerID: 301
     mosaicPosition: {x: 0, y: 0}
     flatten: 0
@@ -3900,7 +3900,7 @@ ScriptedImporter:
     spriteName: TentacleUpLeft
     isGroup: 0
     parentIndex: 78
-    spriteID: d476b2f855b98ba438271734dd8a18c5
+    spriteID: f4441b5120b7e2642936e57208d6de30
     layerID: 300
     mosaicPosition: {x: 4, y: 841}
     flatten: 0
@@ -3940,7 +3940,7 @@ ScriptedImporter:
     spriteName: TentacleDownRight
     isGroup: 0
     parentIndex: 77
-    spriteID: cb88c46985a012f4b836546cc94f3424
+    spriteID: 93cc3f2e40b0df1409311221185d6e19
     layerID: 285
     mosaicPosition: {x: 269, y: 979}
     flatten: 0
@@ -3950,7 +3950,7 @@ ScriptedImporter:
     spriteName: 
     isGroup: 1
     parentIndex: 77
-    spriteID: 70e649a7a57c85e47895afca14755746
+    spriteID: a606b93c12ba13e44b9842ee1bb3f3db
     layerID: 297
     mosaicPosition: {x: 0, y: 0}
     flatten: 0
@@ -3960,7 +3960,7 @@ ScriptedImporter:
     spriteName: TentacleDownLeft
     isGroup: 0
     parentIndex: 84
-    spriteID: 0e2d9db7fe7f06041a29eefe22713ac1
+    spriteID: f07da4a35819cdf4b988abc10a7b363c
     layerID: 296
     mosaicPosition: {x: 479, y: 4}
     flatten: 0
@@ -4000,7 +4000,7 @@ ScriptedImporter:
     spriteName: TDRColor
     isGroup: 0
     parentIndex: 77
-    spriteID: e71811c24ad4e104e941324961879985
+    spriteID: a9555e6bff2908c44bc8b30bff5f0490
     layerID: 288
     mosaicPosition: {x: 102, y: 883}
     flatten: 0
@@ -4010,7 +4010,7 @@ ScriptedImporter:
     spriteName: 
     isGroup: 1
     parentIndex: 77
-    spriteID: 153aed63f22a24545ae0c4e30063001b
+    spriteID: d114205df27225242bca07977f043cd2
     layerID: 293
     mosaicPosition: {x: 0, y: 0}
     flatten: 0
@@ -4020,7 +4020,7 @@ ScriptedImporter:
     spriteName: TentacleUpRight
     isGroup: 0
     parentIndex: 90
-    spriteID: 19dd7883dc3ffbc448ddf3ef89af5cb6
+    spriteID: 8cc0fdfdc86236d4fa74b6157b07bfb4
     layerID: 292
     mosaicPosition: {x: 269, y: 602}
     flatten: 0
@@ -4060,7 +4060,7 @@ ScriptedImporter:
     spriteName: TDRColor
     isGroup: 0
     parentIndex: 77
-    spriteID: 00682f6d4b9528c4ca268cba7e80f94f
+    spriteID: 54d852210431aeb4da6d27ccbb5e565b
     layerID: 281
     mosaicPosition: {x: 104, y: 580}
     flatten: 0
@@ -4070,7 +4070,7 @@ ScriptedImporter:
     spriteName: 
     isGroup: 1
     parentIndex: 77
-    spriteID: 0fa60afc5c315f24c974d7508ed0d4c0
+    spriteID: a27358d563b6f9c499014dc49bc1b6e0
     layerID: 277
     mosaicPosition: {x: 0, y: 0}
     flatten: 0
@@ -4080,7 +4080,7 @@ ScriptedImporter:
     spriteName: TentacleDownRight
     isGroup: 0
     parentIndex: 96
-    spriteID: 294aef78b2280d5469e3bc92ee56444c
+    spriteID: bd2799464e32cfa469077487b2fbab20
     layerID: 276
     mosaicPosition: {x: 269, y: 777}
     flatten: 0
@@ -4120,7 +4120,7 @@ ScriptedImporter:
     spriteName: TentacleDownRight
     isGroup: 0
     parentIndex: 77
-    spriteID: 0c2bf5219bd9e6546a8c26837bb7756e
+    spriteID: 75ccca8deb983a74d942d076924afaad
     layerID: 272
     mosaicPosition: {x: 479, y: 590}
     flatten: 0
@@ -4130,7 +4130,7 @@ ScriptedImporter:
     spriteName: TentacleDownRight
     isGroup: 0
     parentIndex: 77
-    spriteID: f97feaf17811e6f43a84eb77eee7f361
+    spriteID: 08411eaca33ee994b8bad7c225ee1b79
     layerID: 268
     mosaicPosition: {x: 479, y: 885}
     flatten: 0
@@ -4140,7 +4140,7 @@ ScriptedImporter:
     spriteName: TentacleDownRight
     isGroup: 0
     parentIndex: 77
-    spriteID: ae06ae39c03ce0644849d4ebb04d1418
+    spriteID: 519314ee21772c844bbba52c945fe4dc
     layerID: 264
     mosaicPosition: {x: 104, y: 623}
     flatten: 0
