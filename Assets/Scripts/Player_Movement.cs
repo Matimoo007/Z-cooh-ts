@@ -37,6 +37,8 @@ public class Player_Movement : MonoBehaviour
     [HideInInspector]
     public Looking currentLook;
 
+    public bool stopMovement = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,6 +51,13 @@ public class Player_Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (stopMovement)
+        {
+            Vector2 currentVelocity = new Vector2(rb.velocity.x, rb.velocity.y);
+            velocityChange = Vector2.zero - currentVelocity;
+            return;
+        }
+
         PlayerRoll();
 
         if (!isRolling)

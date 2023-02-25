@@ -14,7 +14,10 @@ public class Boss_Logic : MonoBehaviour
     public GameObject[] atk2;
     public string[] anim2;
 
+    private string intro3 = "Intro3";
     public float atkTime3;
+    public GameObject[] atk3;
+    public string[] anim3;
 
     private Animator animator;
     private float atkTime;
@@ -23,6 +26,8 @@ public class Boss_Logic : MonoBehaviour
     private GameObject platform1, platform2;
 
     public bool inIntro = true;
+
+    public bool blackHole = false;
 
     private enum BossStage
     {
@@ -54,6 +59,12 @@ public class Boss_Logic : MonoBehaviour
         inIntro = false;
         while (true)
         {
+            if (blackHole)
+            {
+                yield return null;
+                continue;
+            }
+
             if (inIntro)
             {
                 yield return new WaitForSeconds(2.5f);
@@ -95,8 +106,8 @@ public class Boss_Logic : MonoBehaviour
                         atk.GetComponent<Boss_Attack>().DoAttack();
                         break;
                     case BossStage.Stage3:
-                        i = Random.Range(0, anim2.Length);
-                        anim = anim2[i];
+                        i = Random.Range(0, anim3.Length);
+                        anim = anim3[i];
 
                         if (anim == "Homing")
                         {
@@ -107,7 +118,7 @@ public class Boss_Logic : MonoBehaviour
                             animator.Play(anim, 0);
                         }
 
-                        atk = Instantiate(atk2[i]);
+                        atk = Instantiate(atk3[i]);
                         atk.GetComponent<Boss_Attack>().DoAttack();
                         break;
                 }
@@ -159,6 +170,7 @@ public class Boss_Logic : MonoBehaviour
                 inIntro = true;
                 break;
             case BossStage.Stage3:
+                animator.Play(intro3, 6);
                 atkTime = atkTime3;
                 atkTimer = atkTime;
 
