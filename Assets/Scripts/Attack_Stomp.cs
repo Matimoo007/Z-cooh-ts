@@ -15,6 +15,6 @@ public class Attack_Stomp : Boss_Attack
 
     protected override IEnumerator Attack()
     {
-       
+        yield return null;
     }
 }
