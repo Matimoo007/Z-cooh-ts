@@ -11,22 +11,31 @@ public class Attack_Bite : Boss_Attack
     {
         player = GameObject.Find("Player");
         animator = GetComponent<Animator>();
+        gameObject.SetActive(false);
     }
 
     protected override IEnumerator Attack()
     {
         transform.position = player.transform.position;
         float timer = 1.5f;
+        while (timer > .5f)
+        {
+            timer -= Time.deltaTime;
+
+            transform.position = Vector2.Lerp(transform.position, player.transform.position, 50 * Time.deltaTime);
+            yield return null;
+        }
+
+        animator.Play("Bite");
+
         while (timer > 0)
         {
             timer -= Time.deltaTime;
 
-            transform.position = Vector2.Lerp(transform.position, player.transform.position, 5 * Time.deltaTime);
+            transform.position = Vector2.Lerp(transform.position, player.transform.position, 50 * Time.deltaTime);
             yield return null;
         }
-        animator.Play("Bite");
-        float wait = animator.GetCurrentAnimatorStateInfo(0).length;
-        yield return new WaitForSeconds(wait);
+        yield return new WaitForSeconds(.8f);
 
         AttackOver();
     }
