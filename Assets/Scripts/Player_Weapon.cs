@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player_Weapon : MonoBehaviour
 {
     public GameObject swordObject;
-    public GameObject swordSide, swordUp, swordDown;
+    public GameObject swordSide, swordDown;
 
     public float swordCooldown;
     private float swordTimer;
@@ -20,12 +20,10 @@ public class Player_Weapon : MonoBehaviour
     private enum SwordDirection
     {
         Side,
-        Up,
         Down
     }
 
     private SwordDirection swordDir = SwordDirection.Side;
-    private int vertical;
 
     // Start is called before the first frame update
     void Start()
@@ -49,39 +47,11 @@ public class Player_Weapon : MonoBehaviour
 
     private void SwordPositionning()
     {
-        if (Input.GetButton("Left") || Input.GetButton("Right"))
-        {
-            swordDir = SwordDirection.Side;
-        }
-
-        vertical = 0;
-
-        if (Input.GetButton("Up"))
-        {
-            vertical = 1;
-        }
-
-        if (Input.GetButton("Down"))
-        {
-            vertical = -1;
-        }
-
-        if (Input.GetButton("Up") && Input.GetButton("Down"))
-        {
-            vertical = 0;
-        }
-
-        if (Input.GetButtonDown("Up") || vertical == 1)
-        {
-            swordDir = SwordDirection.Up;
-        }
-
-        if (Input.GetButtonDown("Down") || vertical == -1)
+        if (Input.GetButton("Down") && !pM.isGrounded)
         {
             swordDir = SwordDirection.Down;
         }
-
-        if (Input.GetButtonUp("Up") || Input.GetButtonUp("Down"))
+        else
         {
             swordDir = SwordDirection.Side;
         }
@@ -110,14 +80,7 @@ public class Player_Weapon : MonoBehaviour
                     swordAnimator.SetBool("isSide", true);
                     Invoke("ResetSword", 0.1f);
                     break;
-                case SwordDirection.Up:
-                    swordObject.transform.position = swordUp.transform.position;
-                    swordAnimator.SetBool("isIdle", false);
-                    swordAnimator.SetBool("isUp", true);
-                    Invoke("ResetSword", 0.1f);
-                    break;
                 case SwordDirection.Down:
-                    if (pM.isGrounded) return;
                     swordObject.transform.position = swordDown.transform.position;
                     swordAnimator.SetBool("isIdle", false);
                     swordAnimator.SetBool("isDown", true);
@@ -132,7 +95,6 @@ public class Player_Weapon : MonoBehaviour
     private void ResetSword()
     {
         swordAnimator.SetBool("isSide", false);
-        swordAnimator.SetBool("isUp", false);
         swordAnimator.SetBool("isDown", false);
     }
 
@@ -143,10 +105,6 @@ public class Player_Weapon : MonoBehaviour
             case SwordDirection.Side:
                 rb.velocity = new Vector2(0, rb.velocity.y);
                 rb.AddForce(new Vector2(-transform.localScale.x * recoilForce, 0));
-                break;
-            case SwordDirection.Up:
-                rb.velocity = new Vector2(rb.velocity.x, 0);
-                rb.AddForce(new Vector2(0, -recoilForce / 2.5f));
                 break;
             case SwordDirection.Down:
                 rb.velocity = new Vector2(rb.velocity.x, 0);

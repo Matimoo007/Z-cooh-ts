@@ -12,12 +12,13 @@ public abstract class Boss_Attack : MonoBehaviour
     public void StopAttack()
     {
         StopCoroutine("Attack");
+        AttackOver();
     }
 
     protected abstract IEnumerator Attack();
 
     protected void AttackOver()
     {
-        gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 }

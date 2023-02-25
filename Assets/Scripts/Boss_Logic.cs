@@ -20,6 +20,8 @@ public class Boss_Logic : MonoBehaviour
     private float atkTime;
     private float atkTimer;
 
+    private GameObject platform1, platform2;
+
     private enum BossStage
     {
         Stage1,
@@ -31,6 +33,9 @@ public class Boss_Logic : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        platform1 = GameObject.Find("Platform1");
+        platform2 = GameObject.Find("Platform2");
+
         animator = GetComponent<Animator>();
         animator.Play(intro1, 0);
         atkTime = atkTime1;
@@ -57,30 +62,27 @@ public class Boss_Logic : MonoBehaviour
                 switch (currentStage)
                 {
                     case BossStage.Stage1:
-                        i = Random.Range(0, anim1.Length - 1);
+                        i = Random.Range(0, anim1.Length);
                         anim = anim1[i];
                         animator.Play(anim, 0);
 
-                        atk = atk1[i];
-                        atk.SetActive(true);
+                        atk = Instantiate(atk1[i]);
                         atk.GetComponent<Boss_Attack>().DoAttack();
                         break;
                     case BossStage.Stage2:
-                        i = Random.Range(0, anim2.Length - 1);
+                        i = Random.Range(0, anim2.Length);
                         anim = anim2[i];
                         animator.Play(anim, 0);
 
-                        atk = atk2[i];
-                        atk.SetActive(true);
+                        atk = Instantiate(atk2[i]);
                         atk.GetComponent<Boss_Attack>().DoAttack();
                         break;
                     case BossStage.Stage3:
-                        i = Random.Range(0, anim2.Length - 1);
+                        i = Random.Range(0, anim2.Length);
                         anim = anim2[i];
                         animator.Play(anim, 0);
 
-                        atk = atk2[i];
-                        atk.SetActive(true);
+                        atk = Instantiate(atk2[i]);
                         atk.GetComponent<Boss_Attack>().DoAttack();
                         break;
                 }
@@ -96,12 +98,18 @@ public class Boss_Logic : MonoBehaviour
         {
             case BossStage.Stage1:
                 transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x, -5.4f), Time.deltaTime);
+                platform1.transform.position = Vector2.MoveTowards(platform1.transform.position, new Vector2(platform1.transform.position.x, -4.6f), Time.deltaTime);
+                platform2.transform.position = Vector2.MoveTowards(platform2.transform.position, new Vector2(platform2.transform.position.x, -4.6f), Time.deltaTime);
                 break; 
             case BossStage.Stage2:
-                transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x, -3.4f), Time.deltaTime);
+                transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x, -3.4f), .5f * Time.deltaTime);
+                platform1.transform.position = Vector2.MoveTowards(platform1.transform.position, new Vector2(platform1.transform.position.x, -2.5f), Time.deltaTime);
+                platform2.transform.position = Vector2.MoveTowards(platform2.transform.position, new Vector2(platform2.transform.position.x, -2.5f), Time.deltaTime);
                 break;
             case BossStage.Stage3:
-                transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x, -5.4f), Time.deltaTime);
+                transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x, -5.4f), .5f * Time.deltaTime);
+                platform1.transform.position = Vector2.MoveTowards(platform1.transform.position, new Vector2(platform1.transform.position.x, -4.6f), Time.deltaTime);
+                platform2.transform.position = Vector2.MoveTowards(platform2.transform.position, new Vector2(platform2.transform.position.x, -4.6f), Time.deltaTime);
                 break;
         }
     }

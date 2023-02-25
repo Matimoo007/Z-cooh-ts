@@ -7,6 +7,8 @@ public class Boss_Health : MonoBehaviour
     private int maxHealth = 50;
     private int health;
 
+    private Animator animator;
+
     private Boss_Logic bL;
 
     private bool isDead = false;
@@ -16,6 +18,7 @@ public class Boss_Health : MonoBehaviour
     {
         health = maxHealth;
         bL = GetComponent<Boss_Logic>();
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -33,6 +36,7 @@ public class Boss_Health : MonoBehaviour
         if (collision.transform.tag == "BossDamage")
         {
             health--;
+            animator.Play("Hurt", 2);
 
             if(health == 15)
             {

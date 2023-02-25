@@ -7,11 +7,10 @@ public class Attack_Bite : Boss_Attack
     GameObject player;
     Animator animator;
 
-    private void Start()
+    private void Awake()
     {
         player = GameObject.Find("Player");
         animator = GetComponent<Animator>();
-        gameObject.SetActive(false);
     }
 
     protected override IEnumerator Attack()
