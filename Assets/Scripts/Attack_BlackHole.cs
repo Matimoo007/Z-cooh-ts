@@ -10,6 +10,8 @@ public class Attack_BlackHole : Boss_Attack
     Rigidbody2D rb;
     Animator animator;
 
+    SpriteRenderer ui;
+
     private void Awake()
     {
         bL = GameObject.Find("Coots").GetComponent<Boss_Logic>();
@@ -17,6 +19,8 @@ public class Attack_BlackHole : Boss_Attack
         pM = player.GetComponent<Player_Movement>();
         rb = player.GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+
+        ui = GameObject.Find("BHMash").GetComponent<SpriteRenderer>();
     }
 
     protected override IEnumerator Attack()
@@ -24,13 +28,14 @@ public class Attack_BlackHole : Boss_Attack
         Sound.Instance.Play(10);
         bL.blackHole = true;
         yield return new WaitForSeconds(1.5f);
+        ui.enabled = true;
         pM.stopMovement = true; ;
         yield return new WaitForEndOfFrame();
         rb.velocity = Vector2.zero;
         animator.Play("BlackHoleStart");
         Sound.Instance.Play(6);
 
-        int presses = 20;
+        int presses = 15;
         while (presses >= 0)
         {
             if (Input.GetButtonDown("Jump"))
@@ -47,6 +52,7 @@ public class Attack_BlackHole : Boss_Attack
 
     private void End()
     {
+        ui.enabled = false;
         bL.blackHole = false;
         pM.stopMovement = false;
         Sound.Instance.Stop(6);

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3309410569381393032}
   - component: {fileID: 3309410569381393033}
   - component: {fileID: 3309410569381393034}
+  - component: {fileID: 234877263}
   m_Layer: 0
   m_Name: BHMash
   m_TagString: Untagged
@@ -93,7 +94,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1361909663
   m_SortingLayer: 1
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: 330730f815ac77e40901d5517043a1ab, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -105,3 +106,15 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &234877263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3309410569381393035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bda696e05d1c75547827eab041138455, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

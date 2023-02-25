@@ -784,6 +784,67 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!1001 &184306931
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3309410569381393032, guid: d1029b9c110791845bdc1a64ccd73287, type: 3}
+      propertyPath: m_RootOrder
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 3309410569381393032, guid: d1029b9c110791845bdc1a64ccd73287, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3309410569381393032, guid: d1029b9c110791845bdc1a64ccd73287, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3309410569381393032, guid: d1029b9c110791845bdc1a64ccd73287, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3309410569381393032, guid: d1029b9c110791845bdc1a64ccd73287, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3309410569381393032, guid: d1029b9c110791845bdc1a64ccd73287, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3309410569381393032, guid: d1029b9c110791845bdc1a64ccd73287, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3309410569381393032, guid: d1029b9c110791845bdc1a64ccd73287, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3309410569381393032, guid: d1029b9c110791845bdc1a64ccd73287, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3309410569381393032, guid: d1029b9c110791845bdc1a64ccd73287, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3309410569381393032, guid: d1029b9c110791845bdc1a64ccd73287, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3309410569381393034, guid: d1029b9c110791845bdc1a64ccd73287, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3309410569381393035, guid: d1029b9c110791845bdc1a64ccd73287, type: 3}
+      propertyPath: m_Name
+      value: BHMash
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d1029b9c110791845bdc1a64ccd73287, type: 3}
 --- !u!1 &209156177
 GameObject:
   m_ObjectHideFlags: 0
@@ -7728,9 +7789,11 @@ MonoBehaviour:
   atk1:
   - {fileID: 2667836286655453350, guid: 3d25d2f547b85cd40984c2bbb1b72458, type: 3}
   - {fileID: 1899664734592615560, guid: 46a35a0ffec51164087a8451478c941a, type: 3}
+  - {fileID: 102038618137574500, guid: a63c0ca384ed68044b39067fd8592212, type: 3}
   anim1:
   - Bite
   - Stomp
+  - BlackHole
   atkTime2: 2
   atk2:
   - {fileID: 2667836286655453350, guid: 3d25d2f547b85cd40984c2bbb1b72458, type: 3}
