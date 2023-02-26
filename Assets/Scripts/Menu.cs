@@ -20,7 +20,6 @@ public class Menu : MonoBehaviour
     public void PlayGame()
     {
         fade.SetActive(true);
-        anim.Play("FadeToBlack");
         Invoke("Next", 1.0f);    
     }
 

@@ -5,14 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class Boss_Health : MonoBehaviour
 {
-    private int maxHealth = 50;
+    private int maxHealth = 75;
     private int health;
 
     private Animator animator;
 
     private Boss_Logic bL;
 
-    private bool isDead = false;
+    [HideInInspector]
+    public bool isDead = false;
 
     public GameObject victory;
 
@@ -26,8 +27,6 @@ public class Boss_Health : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log("Boss : " + health);
-
         if (health < 0)
         {
             health = 0;
@@ -43,11 +42,11 @@ public class Boss_Health : MonoBehaviour
             health--;
             animator.Play("Hurt", 5);
 
-            if(health == 15)
+            if(health == 35)
             {
                 bL.NextStage();
             }
-            else if(health == 35)
+            else if(health == 60)
             {
                 bL.NextStage();
             }

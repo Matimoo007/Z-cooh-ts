@@ -17,6 +17,7 @@ public class Player_Health : MonoBehaviour
     private Rigidbody2D rb;
     private Animator animator;
     private SpriteRenderer sprite;
+    private Boss_Health bH;
 
     public GameObject defeat;
 
@@ -35,12 +36,11 @@ public class Player_Health : MonoBehaviour
         animator = transform.GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
         ui = GameObject.Find("Health").GetComponent<Animator>();
+        bH = GameObject.Find("Coots").GetComponent<Boss_Health>();
     }
 
     private void Update()
     {
-        Debug.Log("Player : " + health);
-
         if (health < 0)
         {
             health = 0;
@@ -59,7 +59,7 @@ public class Player_Health : MonoBehaviour
     {
         if (isDead) return;
 
-        if (collision.transform.tag == "PlayerDamage" && !pM.isRolling && canHurt)
+        if (collision.transform.tag == "PlayerDamage" && !pM.isRolling && canHurt && !bH.isDead)
         {
             health--;
             Knockback();

@@ -7787,14 +7787,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de2ff08258b2ea14da82978de6346984, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  atkTime1: 2
+  atkTime1: 2.5
   atk1:
   - {fileID: 2667836286655453350, guid: 3d25d2f547b85cd40984c2bbb1b72458, type: 3}
   - {fileID: 1899664734592615560, guid: 46a35a0ffec51164087a8451478c941a, type: 3}
   anim1:
   - Bite
   - Stomp
-  atkTime2: 2
+  atkTime2: 3
   atk2:
   - {fileID: 2667836286655453350, guid: 3d25d2f547b85cd40984c2bbb1b72458, type: 3}
   - {fileID: 1899664734592615560, guid: 46a35a0ffec51164087a8451478c941a, type: 3}
@@ -7805,7 +7805,7 @@ MonoBehaviour:
   - Stomp
   - Tentacles
   - Homing
-  atkTime3: 2
+  atkTime3: 1.5
   atk3:
   - {fileID: 2667836286655453350, guid: 3d25d2f547b85cd40984c2bbb1b72458, type: 3}
   - {fileID: 1899664734592615560, guid: 46a35a0ffec51164087a8451478c941a, type: 3}
