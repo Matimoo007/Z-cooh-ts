@@ -8,19 +8,10 @@ public class Menu : MonoBehaviour
     [SerializeField]
     private GameObject fade;
 
-    private Animator anim;
-
-    private void Start()
-    {
-        anim = fade.GetComponent<Animator>();
-
-        fade.SetActive(false);
-    }
-
     public void PlayGame()
     {
         fade.SetActive(true);
-        Invoke("Next", 1.0f);    
+        Invoke("Next", 1f);    
     }
 
     private void Next()

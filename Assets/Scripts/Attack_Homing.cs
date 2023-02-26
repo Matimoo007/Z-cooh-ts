@@ -52,7 +52,7 @@ public class Attack_Homing : Boss_Attack
             yield return null;
         }
 
-        var timer = 5f;
+        var timer = 4.25f;
         while (timer >= 0)
         {
             timer -= Time.deltaTime;
