@@ -59,13 +59,13 @@ public class Attack_Tentacles : Boss_Attack
             transform.position = Vector2.MoveTowards(transform.position, t1, Time.deltaTime);
             yield return null;
         }
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSecondsRealtime(1.5f);
         while (Vector3.Distance(transform.position, t2) > 0.1f)
         {
             transform.position = Vector2.Lerp(transform.position, t2, 5 * Time.deltaTime);
             yield return null;
         }
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSecondsRealtime(1f);
         while (Vector3.Distance(transform.position, reset) > 0.05f)
         {
             transform.position = Vector2.Lerp(transform.position, reset, 5 * Time.deltaTime);

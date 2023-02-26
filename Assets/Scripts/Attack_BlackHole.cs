@@ -27,7 +27,7 @@ public class Attack_BlackHole : Boss_Attack
     {
         Sound.Instance.Play(10);
         bL.blackHole = true;
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSecondsRealtime(1.5f);
         ui.enabled = true;
         pM.stopMovement = true; ;
         yield return new WaitForEndOfFrame();

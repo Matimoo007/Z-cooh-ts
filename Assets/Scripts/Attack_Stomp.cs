@@ -36,24 +36,24 @@ public class Attack_Stomp : Boss_Attack
             transform.position = new Vector2(-11, -2.75f);
         }
 
-        yield return new WaitForSeconds(.9f);
+        yield return new WaitForSecondsRealtime(.9f);
 
         three.gameObject.SetActive(true);
-        yield return new WaitForSeconds(.15f);
+        yield return new WaitForSecondsRealtime(.15f);
         two.gameObject.SetActive(true);
-        yield return new WaitForSeconds(.15f);
+        yield return new WaitForSecondsRealtime(.15f);
         one.gameObject.SetActive(true);
 
         CameraShake.Instance.DoShake(.3f, .3f);
         Sound.Instance.Play(5);
         while (three.localPosition.x > -24)
         {
-            yield return new WaitForSeconds(.1f);
+            yield return new WaitForSecondsRealtime(.1f);
 
             three.localPosition = new Vector2(three.localPosition.x - 3, three.localPosition.y);
-            yield return new WaitForSeconds(.15f);
+            yield return new WaitForSecondsRealtime(.15f);
             two.localPosition = new Vector2(two.localPosition.x - 3, two.localPosition.y);
-            yield return new WaitForSeconds(.15f);
+            yield return new WaitForSecondsRealtime(.15f);
             one.localPosition = new Vector2(one.localPosition.x - 3, one.localPosition.y);
         }
 

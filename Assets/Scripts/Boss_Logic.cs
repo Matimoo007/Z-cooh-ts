@@ -55,7 +55,7 @@ public class Boss_Logic : MonoBehaviour
 
     private IEnumerator LogicUpdate()
     {
-        yield return new WaitForSeconds(5.83f);
+        yield return new WaitForSecondsRealtime(5.83f);
         Sound.Instance.Play(8);
 
         inIntro = false;
@@ -69,7 +69,7 @@ public class Boss_Logic : MonoBehaviour
 
             if (inIntro)
             {
-                yield return new WaitForSeconds(2.5f);
+                yield return new WaitForSecondsRealtime(2.5f);
                 inIntro = false;
             }
 

@@ -35,7 +35,7 @@ public class Attack_Bite : Boss_Attack
             transform.position = Vector2.Lerp(transform.position, player.transform.position, 50 * Time.deltaTime);
             yield return null;
         }
-        yield return new WaitForSeconds(.8f);
+        yield return new WaitForSecondsRealtime(.8f);
 
         AttackOver();
     }
