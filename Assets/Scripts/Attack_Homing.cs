@@ -31,8 +31,15 @@ public class Attack_Homing : Boss_Attack
 
     protected override IEnumerator Attack()
     {
+        float timed;
+
         transform.position = spawn.transform.position;
-        yield return new WaitForSecondsRealtime(1f);
+        timed = 1f;
+        while (timed >= 0)
+        {
+            timed -= Time.deltaTime;
+            yield return null;
+        }
         cd.enabled = true;
         vfx.gameObject.SetActive(true);
         sprite.enabled = true;

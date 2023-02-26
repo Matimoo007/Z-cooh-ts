@@ -18,6 +18,8 @@ public class Attack_Stomp : Boss_Attack
 
     protected override IEnumerator Attack()
     {
+        float timer;
+
         one.localPosition = new Vector2(1, one.localPosition.y);
         two.localPosition = new Vector2(2, two.localPosition.y);
         three.localPosition = new Vector2(3, three.localPosition.y);
@@ -36,24 +38,54 @@ public class Attack_Stomp : Boss_Attack
             transform.position = new Vector2(-11, -2.75f);
         }
 
-        yield return new WaitForSecondsRealtime(.9f);
+        timer = 0.9f;
+        while (timer >= 0)
+        {
+            timer -= Time.deltaTime;
+            yield return null;
+        }
 
         three.gameObject.SetActive(true);
-        yield return new WaitForSecondsRealtime(.15f);
+        timer = 0.15f;
+        while (timer >= 0)
+        {
+            timer -= Time.deltaTime;
+            yield return null;
+        }
         two.gameObject.SetActive(true);
-        yield return new WaitForSecondsRealtime(.15f);
+        timer = 0.15f;
+        while (timer >= 0)
+        {
+            timer -= Time.deltaTime;
+            yield return null;
+        }
         one.gameObject.SetActive(true);
 
         CameraShake.Instance.DoShake(.3f, .3f);
         Sound.Instance.Play(5);
         while (three.localPosition.x > -24)
         {
-            yield return new WaitForSecondsRealtime(.1f);
+            timer = 0.1f;
+            while (timer >= 0)
+            {
+                timer -= Time.deltaTime;
+                yield return null;
+            }
 
             three.localPosition = new Vector2(three.localPosition.x - 3, three.localPosition.y);
-            yield return new WaitForSecondsRealtime(.15f);
+            timer = 0.15f;
+            while (timer >= 0)
+            {
+                timer -= Time.deltaTime;
+                yield return null;
+            }
             two.localPosition = new Vector2(two.localPosition.x - 3, two.localPosition.y);
-            yield return new WaitForSecondsRealtime(.15f);
+            timer = 0.15f;
+            while (timer >= 0)
+            {
+                timer -= Time.deltaTime;
+                yield return null;
+            }
             one.localPosition = new Vector2(one.localPosition.x - 3, one.localPosition.y);
         }
 

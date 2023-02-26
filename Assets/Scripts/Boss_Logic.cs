@@ -55,7 +55,14 @@ public class Boss_Logic : MonoBehaviour
 
     private IEnumerator LogicUpdate()
     {
-        yield return new WaitForSecondsRealtime(5.83f);
+        float timed;
+
+        timed = 5.83f;
+        while (timed >= 0)
+        {
+            timed -= Time.deltaTime;
+            yield return null;
+        }
         Sound.Instance.Play(8);
 
         inIntro = false;
@@ -69,7 +76,12 @@ public class Boss_Logic : MonoBehaviour
 
             if (inIntro)
             {
-                yield return new WaitForSecondsRealtime(2.5f);
+                timed = 2.5f;
+                while (timed >= 0)
+                {
+                    timed -= Time.deltaTime;
+                    yield return null;
+                }
                 inIntro = false;
             }
 

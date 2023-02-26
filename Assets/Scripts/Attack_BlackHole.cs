@@ -25,9 +25,16 @@ public class Attack_BlackHole : Boss_Attack
 
     protected override IEnumerator Attack()
     {
+        float timer;
+
         Sound.Instance.Play(10);
         bL.blackHole = true;
-        yield return new WaitForSecondsRealtime(1.5f);
+        timer = 1.5f;
+        while (timer >= 0)
+        {
+            timer -= Time.deltaTime;
+            yield return null;
+        }
         ui.enabled = true;
         pM.stopMovement = true; ;
         yield return new WaitForEndOfFrame();

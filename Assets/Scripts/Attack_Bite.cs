@@ -15,6 +15,8 @@ public class Attack_Bite : Boss_Attack
 
     protected override IEnumerator Attack()
     {
+        float timed;
+
         transform.position = player.transform.position;
         float timer = 1.5f;
         while (timer > .5f)
@@ -35,7 +37,12 @@ public class Attack_Bite : Boss_Attack
             transform.position = Vector2.Lerp(transform.position, player.transform.position, 50 * Time.deltaTime);
             yield return null;
         }
-        yield return new WaitForSecondsRealtime(.8f);
+        timed = .8f;
+        while (timed >= 0)
+        {
+            timed -= Time.deltaTime;
+            yield return null;
+        }
 
         AttackOver();
     }

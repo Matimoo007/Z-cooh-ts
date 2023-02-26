@@ -17,6 +17,8 @@ public class Attack_Tentacles : Boss_Attack
 
     protected override IEnumerator Attack()
     {
+        float timed;
+
         Vector2 t1;
         Vector2 t2;
         if (rand == 0)
@@ -59,13 +61,23 @@ public class Attack_Tentacles : Boss_Attack
             transform.position = Vector2.MoveTowards(transform.position, t1, Time.deltaTime);
             yield return null;
         }
-        yield return new WaitForSecondsRealtime(1.5f);
+        timed = 1.5f;
+        while (timed >= 0)
+        {
+            timed -= Time.deltaTime;
+            yield return null;
+        }
         while (Vector3.Distance(transform.position, t2) > 0.1f)
         {
             transform.position = Vector2.Lerp(transform.position, t2, 5 * Time.deltaTime);
             yield return null;
         }
-        yield return new WaitForSecondsRealtime(1f);
+        timed = 1f;
+        while (timed >= 0)
+        {
+            timed -= Time.deltaTime;
+            yield return null;
+        }
         while (Vector3.Distance(transform.position, reset) > 0.05f)
         {
             transform.position = Vector2.Lerp(transform.position, reset, 5 * Time.deltaTime);
