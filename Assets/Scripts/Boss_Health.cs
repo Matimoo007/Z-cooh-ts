@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Boss_Health : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class Boss_Health : MonoBehaviour
     private Boss_Logic bL;
 
     private bool isDead = false;
+
+    public GameObject victory;
 
     // Start is called before the first frame update
     void Start()
@@ -58,7 +61,15 @@ public class Boss_Health : MonoBehaviour
 
     private void Death()
     {
+        animator.Play("Death");
+        victory.SetActive(true);
         isDead = true;
         bL.LogicStop();
+        Invoke("Reload", 5f);
+    }
+
+    private void Reload()
+    {
+        SceneManager.LoadScene("Start");
     }
 }

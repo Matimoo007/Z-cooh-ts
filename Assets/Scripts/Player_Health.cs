@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player_Health : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class Player_Health : MonoBehaviour
     private Rigidbody2D rb;
     private Animator animator;
     private SpriteRenderer sprite;
+
+    public GameObject defeat;
 
     private bool isDead = false;
 
@@ -95,5 +98,13 @@ public class Player_Health : MonoBehaviour
         animator.SetBool("isDead", isDead);
         pM.enabled = false;
         pW.enabled = false;
+        defeat.SetActive(true);
+
+        Invoke("Reload", 4.5f);
+    }
+
+    private void Reload()
+    {
+        SceneManager.LoadScene("BossStage");
     }
 }
